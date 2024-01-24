@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center m-5">
+    <div class="col-md-5 col-lg-6 p-3 border border-info rounded">
+        <h4 class="mb-3">Edit Employee</h4>
+        
+        <hr class="my-4">
+
+        <form [formGroup]="updateForm" (submit)="onSubmit()">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
+                    <div class="invalid" *ngIf="updateForm.controls['username'].touched && updateForm.controls['username'].errors">
+                        Valid first name is required.
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                    <div class="invalid" *ngIf="updateForm.controls['firstName'].touched && updateForm.controls['firstName'].errors">
+                        Valid first name is required.
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                    <div class="invalid" *ngIf="updateForm.controls['lastName'].touched && updateForm.controls['lastName'].errors">
+                        Valid Last name is required.
+                    </div>
+                </div>
+
+                <div class="">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email"  formControlName="email" placeholder="you@example.com">
+                    <div class="invalid" *ngIf="updateForm.controls['email'].touched && updateForm.controls['email'].errors">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="birthdate" class="form-label">Birth Date</label>
+                    <input type="date" class="form-control" id="birthdate"  formControlName="birthdate">
+                    <div class="invalid" *ngIf="formValidation.birthdate.touched && formValidation.birthdate.errors">
+                        Please enter your birthdate.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" class="form-control" id="salary" formControlName="basicSalary">
+                    <div class="invalid" *ngIf="updateForm.controls['basicSalary'].touched && updateForm.controls['basicSalary'].errors">
+                        Please enter your salary.
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                    <input type="checkbox" class="form-check-input mx-2" id="isActive" formControlName="status">
+                    <label class="form-check-label" for="isActive">Is Active?</label>
+                </div>
+
+                <div class="col-md-5">
+                    <label for="group" class="form-label">Group</label>
+                    <select class="form-select" id="group" formControlName="group">
+                      <option value="">Choose...</option>
+                      <option *ngFor="let group of groups" [value]="group">{{group}}</option>
+                    </select>
+                    <div class="invalid" *ngIf="updateForm.controls['group'].touched && updateForm.controls['group'].errors">
+                      Please select a valid group.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+                    <div class="invalid" *ngIf="updateForm.controls['description'].touched && updateForm.controls['description'].errors">
+                        Please select a valid description.
+                      </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+            <button class="w-50 btn btn-primary" type="submit" [disabled]="updateForm.invalid">Update Employee</button>
+            <button class="w-50 btn btn-info" routerLink="">Cancel</button>
+        </form>
+    </div>
+</div>

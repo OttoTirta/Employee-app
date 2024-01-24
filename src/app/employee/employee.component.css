@@ -1,0 +1,10 @@
+thead td:hover{
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out ;
+    background-color: rgb(174, 172, 172);
+}
+.page-link:hover{
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out ;
+    background-color: wheat;
+}

@@ -1,0 +1,47 @@
+<div class="modal d-flex align-items-center justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12 p-4 border border-info rounded">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                    <td>{{employee.username}}</td>
+                </tr>
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{employee.getFullName()}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{employee.email}}</td>
+                </tr>
+                <tr>
+                    <td>Birth Date</td>
+                    <td>{{employee.getbirthdateString()|date:'dd MMMM YYYY'}}</td>
+                </tr>
+                <tr>
+                    <td>Basic Salary</td>
+                    <td>{{employee.getRupiahBasicSalary()}}</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>{{employee.status?"Active":"Inactive"}}</td>
+                </tr>
+                <tr>
+                    <td>Group</td>
+                    <td>{{employee.group}}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{employee.description}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-info" (click)="backButton()">Back To Employees</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
